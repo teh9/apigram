@@ -1,0 +1,18 @@
+{
+    "name": "teh9/apigram",
+    "autoload": {
+        "psr-4": {
+            "Teh9\\Apigram\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tengiz 'teh9' Gusev",
+            "email": "tengizs.gusevs@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0",
+        "php": "^7.2.5"
+    }
+}
