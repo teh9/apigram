@@ -2,16 +2,17 @@
 
 namespace Teh9\Apigram\Actions;
 
-class Webhook implements Action
+class Webhook extends Action
 {
-    public function set()
+    public function set($url, array $params = [])
     {
-        //
+        $this->actionConfig['url'] = $url;
+        return $this->request->post('setWebhook', $this->parseParams($params));
     }
 
     public function remove()
     {
-        //
+        $this->request->post('setWebhook?remove');
     }
 
     public function getInfo()

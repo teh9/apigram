@@ -2,12 +2,13 @@
 
 namespace Teh9\Apigram\TransportClient;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 
 class TransportClient
 {
-    protected $client;
+    protected $guzzleClient;
 
     protected $initialConfig = [
         RequestOptions::CONNECT_TIMEOUT => 10,
@@ -15,14 +16,24 @@ class TransportClient
 
     public function __construct()
     {
-        $this->client = new Client();
+        $this->guzzleClient = new Client();
+    }
+
+    public function setTimeout(int $timeout)
+    {
+        $this->initialConfig['timeout'] = $timeout;
+        return $this;
     }
 
     public function post(string $url, array $payload)
     {
-        return $this->client->post($url, array_merge(
-            ['json' => $payload],
-            $this->initialConfig
-        ));
+        try {
+            return $this->guzzleClient->post($url, array_merge(
+                ['json' => $payload],
+                $this->initialConfig
+            ));
+        } catch (Exception $e) {
+            //
+        }
     }
 }
