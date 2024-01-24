@@ -3,6 +3,7 @@
 namespace Teh9\Apigram\Client;
 
 use Teh9\Apigram\Actions\Messages;
+use Teh9\Apigram\Actions\Webhook;
 
 class TelegramClient
 {
@@ -16,5 +17,10 @@ class TelegramClient
     public function messages()
     {
         return new Messages($this->request);
+    }
+
+    public function webhook()
+    {
+        return new Webhook($this->request);
     }
 }

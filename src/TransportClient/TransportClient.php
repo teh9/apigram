@@ -11,7 +11,7 @@ class TransportClient
     protected $guzzleClient;
 
     protected $initialConfig = [
-        RequestOptions::CONNECT_TIMEOUT => 10,
+        RequestOptions::TIMEOUT => 10,
     ];
 
     public function __construct()
@@ -21,7 +21,7 @@ class TransportClient
 
     public function setTimeout(int $timeout)
     {
-        $this->initialConfig['timeout'] = $timeout;
+        $this->initialConfig[RequestOptions::TIMEOUT] = $timeout;
         return $this;
     }
 

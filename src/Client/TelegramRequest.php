@@ -4,6 +4,7 @@ namespace Teh9\Apigram\Client;
 
 use Exception;
 use Teh9\Apigram\TransportClient\TransportClient;
+use Teh9\Apigram\TransportClient\TransportClientResponse;
 
 class TelegramRequest
 {
@@ -26,9 +27,11 @@ class TelegramRequest
         $url = self::API_HOST . $this->accessToken . '/' . $method;
 
         try {
-            $this->client->post($url, $params);
+            $result = $this->client->post($url, $params);
         } catch (Exception $e) {
 
         }
+
+        return new TransportClientResponse($result);
     }
 }
