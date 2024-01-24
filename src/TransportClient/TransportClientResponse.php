@@ -8,7 +8,12 @@ class TransportClientResponse
 {
     protected $response;
 
-    public function __construct(ResponseInterface $response)
+    public function get()
+    {
+        return $this->response;
+    }
+
+    public function parseResponse(ResponseInterface $response)
     {
         $this->response = $response;
     }

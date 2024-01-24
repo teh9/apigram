@@ -20,4 +20,9 @@ class Messages extends Action
     {
         //
     }
+
+    public function getMessageId()
+    {
+        return $this->request->getResponse();
+    }
 }

@@ -16,10 +16,13 @@ class TelegramRequest
 
     protected $client;
 
+    protected $response;
+
     public function __construct($accessToken)
     {
         $this->accessToken = $accessToken;
         $this->client = new TransportClient();
+        $this->response = new TransportClientResponse();
     }
 
     public function post(string $method, array $params = [])
@@ -32,6 +35,11 @@ class TelegramRequest
 
         }
 
-        return new TransportClientResponse($result);
+        return $this->response->parseResponse($result);
+    }
+
+    public function getResponse()
+    {
+        return $this->response->get();
     }
 }
