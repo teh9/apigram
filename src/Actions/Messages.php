@@ -2,32 +2,31 @@
 
 namespace Teh9\Apigram\Actions;
 
-use Teh9\Apigram\Traits\Messages as TraitsMessages;
+use Teh9\Apigram\Traits\MessagesTrait;
 
 class Messages extends Action
 {
-    use TraitsMessages;
+    use MessagesTrait;
+
+    protected $action = 'messages';
 
     public function send(string $text, array $params = [])
     {
-        return $this->text($text)->request->post('sendMessage', $this->parseParams($params));
-    }
+        $this->actionConfig['text'] = $text;
 
+        return $this->request->post('sendMessage', $this->parseParams($params));
+    }
+    
     public function forward($fromChatId, $messageId, array $params = [])
     {
-        return $this->fromChatId($fromChatId)
-                    ->messageId($messageId)
-                    ->request
-                    ->post('forwardMessage', $this->parseParams($params));
+        $this->actionConfig['from_chat_id'] = $fromChatId;
+        $this->actionConfig['message_id'] = $messageId;
+
+        return $this->request->post('forwardMessage', $this->parseParams($params));
     }
 
     public function search()
     {
         //
-    }
-
-    public function getMessageId()
-    {
-        return $this->request->getResponse();
     }
 }

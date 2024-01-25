@@ -4,7 +4,6 @@ namespace Teh9\Apigram\Client;
 
 use Exception;
 use Teh9\Apigram\TransportClient\TransportClient;
-use Teh9\Apigram\TransportClient\TransportClientResponse;
 
 class TelegramRequest
 {
@@ -16,30 +15,32 @@ class TelegramRequest
 
     protected $client;
 
-    protected $response;
+    protected $factoryKey;
 
     public function __construct($accessToken)
     {
         $this->accessToken = $accessToken;
         $this->client = new TransportClient();
-        $this->response = new TransportClientResponse();
     }
 
     public function post(string $method, array $params = [])
     {
         $url = self::API_HOST . $this->accessToken . '/' . $method;
 
+        if (isset($params['action'])) unset($params['action']);
+
         try {
-            $result = $this->client->post($url, $params);
+            $result = $this->client->post($url, $this->prepareRequest($params));
         } catch (Exception $e) {
 
         }
-
-        return $this->response->parseResponse($result);
     }
 
-    public function getResponse()
+    protected function prepareRequest(array $params)
     {
-        return $this->response->get();
+        $this->factoryKey = $params['action'];
+        unset($params['action']);
+        
+        return $params;
     }
 }
