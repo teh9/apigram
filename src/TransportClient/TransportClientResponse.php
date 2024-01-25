@@ -8,6 +8,12 @@ class TransportClientResponse
 {
     protected $response;
 
+    protected $header;
+
+    protected $body;
+
+    protected $statusCode;
+
     public function get()
     {
         return $this->response;
@@ -15,6 +21,10 @@ class TransportClientResponse
 
     public function parseResponse(ResponseInterface $response)
     {
-        $this->response = $response;
+        $this->header = $response->getHeaders();
+        $this->body = $response->getBody();
+        $this->statusCode = $response->getStatusCode();
+
+        return $this->response = json_decode($this->body->getContents());
     }
 }

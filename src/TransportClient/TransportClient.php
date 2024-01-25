@@ -2,7 +2,6 @@
 
 namespace Teh9\Apigram\TransportClient;
 
-use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 
@@ -32,7 +31,7 @@ class TransportClient
                 ['json' => $payload],
                 $this->initialConfig
             ));
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             //
         }
     }

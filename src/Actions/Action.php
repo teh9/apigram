@@ -16,11 +16,6 @@ abstract class Action implements ActionInterface
         $this->request = $telegramRequest;
     }
 
-    public function result()
-    {
-        return $this->request;
-    }
-
     protected function parseParams(array $params = [])
     {
         return array_merge($this->actionConfig, $params);    
