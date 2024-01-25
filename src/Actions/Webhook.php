@@ -12,7 +12,7 @@ class Webhook extends Action
 
     public function remove()
     {
-        $this->request->post('setWebhook?remove');
+        return $this->request->post('setWebhook?remove');
     }
 
     public function getInfo()
