@@ -3,6 +3,7 @@
 namespace Teh9\Apigram\Client;
 
 use Exception;
+use Teh9\Apigram\TransportClient\Responses\TransportClientResponseFactory;
 use Teh9\Apigram\TransportClient\TransportClient;
 
 class TelegramRequest
@@ -14,8 +15,8 @@ class TelegramRequest
     protected const API_HOST = 'https://api.telegram.org/bot';
 
     protected $client;
-
-    protected $factoryKey;
+    
+    protected $response;
 
     public function __construct($accessToken)
     {
@@ -30,15 +31,17 @@ class TelegramRequest
         if (isset($params['action'])) unset($params['action']);
 
         try {
-            $result = $this->client->post($url, $this->prepareRequest($params));
+            $response = $this->client->post($url, $this->prepareRequest($params));
         } catch (Exception $e) {
 
         }
+
+        return $this->response->parse($response);
     }
 
     protected function prepareRequest(array $params)
     {
-        $this->factoryKey = $params['action'];
+        $this->response = TransportClientResponseFactory::make($params['action']);
         unset($params['action']);
         
         return $params;

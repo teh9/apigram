@@ -8,7 +8,7 @@ class TransportClientResponse
 {
     protected $response;
 
-    protected $header;
+    protected $headers;
 
     protected $body;
 
@@ -19,9 +19,24 @@ class TransportClientResponse
         return $this->response;
     }
 
-    public function parseResponse(ResponseInterface $response)
+    public function getStatusCode()
     {
-        $this->header = $response->getHeaders();
+        return $this->statusCode;
+    }
+
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    public function getHeaders()
+    {
+        return $this->headers;
+    }
+
+    public function parse(ResponseInterface $response)
+    {
+        $this->headers = $response->getHeaders();
         $this->body = $response->getBody();
         $this->statusCode = $response->getStatusCode();
 
