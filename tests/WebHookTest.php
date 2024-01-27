@@ -10,12 +10,13 @@ class WebHookTest extends TestCase
     public function testSetWrongWebhook()
     {
         $telegram = new TelegramClient(getenv('TELEGRAM_BOT_TOKEN'));
+                
         try {
             $response = $telegram->webhook()->set('http://localhost');
             $this->fail('Expected exception not thrown');
         } catch (\Exception $e) {
             $this->assertFalse($response->status());
-            $this->assertEquals(400, $response->getCode());
+            $this->assertEquals(400, $response->getStatusCode());
         }
     }
 
