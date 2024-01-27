@@ -8,8 +8,17 @@ class Messages extends Action
 {
     use MessagesTrait;
 
+    /**
+     * @var $action
+     */
     protected $action = 'messages';
 
+    /**
+     * @param string $text
+     * @param array $params
+     * 
+     * @return mixed
+     */
     public function send(string $text, array $params = [])
     {
         $this->actionConfig['text'] = $text;
@@ -17,7 +26,14 @@ class Messages extends Action
         return $this->request->post('sendMessage', $this->parseParams($params));
     }
     
-    public function forward($fromChatId, $messageId, array $params = [])
+    /**
+     * @param mixed $fromChatId
+     * @param int $messageId
+     * @param array $params
+     * 
+     * @return \Teh9\Apigram\TransportClient\TransportClientResponse
+     */
+    public function forward(mixed $fromChatId, int $messageId, array $params = [])
     {
         $this->actionConfig['from_chat_id'] = $fromChatId;
         $this->actionConfig['message_id'] = $messageId;

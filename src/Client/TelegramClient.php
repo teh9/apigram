@@ -8,6 +8,9 @@ use Teh9\Apigram\Actions\Webhook;
 
 class TelegramClient
 {
+    /**
+     * @var TelegramRequest $request
+     */
     protected $request;
 
     public function __construct(string $accessToken)
@@ -15,16 +18,25 @@ class TelegramClient
         $this->request = new TelegramRequest($accessToken);
     }
     
+    /**
+     * @return Messages
+     */
     public function messages()
     {
         return new Messages($this->request);
     }
 
+    /**
+     * @return Webhook
+     */
     public function webhook()
     {
         return new Webhook($this->request);
     }
 
+    /**
+     * @return Assets
+     */
     public function assets()
     {
         return new Assets($this->request);

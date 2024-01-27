@@ -7,12 +7,24 @@ use Teh9\Apigram\Interfaces\ActionInterface;
 
 abstract class Action implements ActionInterface
 {
+    /**
+     * @var TelegramRequest $request
+     */
     protected $request;
 
+    /**
+     * @var array $actionConfig
+     */
     protected $actionConfig;
 
+    /**
+     * @var string $action
+     */
     protected $action;
 
+    /**
+     * @param TelegramRequest $telegramRequest
+     */
     public function __construct(TelegramRequest $telegramRequest)
     {
         $this->request = $telegramRequest;
@@ -20,6 +32,7 @@ abstract class Action implements ActionInterface
 
     /**
      * @param array $params
+     * 
      * @return array
      */
     protected function parseParams(array $params = [])

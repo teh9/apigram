@@ -10,14 +10,26 @@ class TelegramRequest
 {
     protected const CONNECTION_TIMEOUT = 10;
 
-    protected $accessToken;
-
     protected const API_HOST = 'https://api.telegram.org/bot';
 
+    /**
+     * @var string $accessToken
+     */
+    protected $accessToken;
+
+    /**
+     * @var TransportClient $client
+     */
     protected $client;
     
+    /**
+     * @var mixed $response
+     */
     protected $response;
 
+    /**
+     * @param string $accessToken
+     */
     public function __construct($accessToken)
     {
         $this->accessToken = $accessToken;
@@ -28,7 +40,7 @@ class TelegramRequest
      * @param string $method
      * @param array $params
      * 
-     * @return TransportCLientResponseFactory
+     * @return mixed
      */
     public function post(string $method, array $params = [])
     {
@@ -39,7 +51,7 @@ class TelegramRequest
         try {
             $response = $this->client->post($url, $params);
         } catch (Exception $e) {
-
+            //
         }
 
         return $this->response->parse($response);
