@@ -1,5 +1,7 @@
 # APIGram Simple PHP Telegram API SDK
 A lightweight and simple library for working with the Telegram Bot API, is under active development. But some methods are already available for work, see paragraph 3.
+![Packagist downloads](https://img.shields.io/packagist/dt/teh9/apigram)
+![Version](https://img.shields.io/github/v/release/teh9/apigram)
 
 ## 1. Prerequisites
 - PHP >= 7.2.5
