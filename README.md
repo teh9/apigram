@@ -21,7 +21,10 @@ $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 $chatId = 1;
 
 $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
-$client->messages()->to($chatId)->send('text');
+$response = $client->messages()->to($chatId)->send('text');
+
+$response->getMessageId(); // Get message id
+
 ```
 
 #### 3.2. Webhook
@@ -30,7 +33,9 @@ $client->messages()->to($chatId)->send('text');
 $webhookUrl = 'https://yourwebhook.net';
 
 $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
-$client->webhook()->set($webhookUrl);
+$response = $client->webhook()->set($webhookUrl);
+
+var_dump($response->status()); // true/false
 ```
 
 ##### Remove webhook:
