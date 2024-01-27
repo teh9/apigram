@@ -14,7 +14,7 @@ composer require teh9/apigram
 ```php 
 $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 ```
-### 3.1. Messages
+#### 3.1. Messages
 ##### Send message:
 
 ```php
@@ -24,7 +24,7 @@ $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 $client->messages()->to($chatId)->send('text');
 ```
 
-### 3.2. Webhook
+#### 3.2. Webhook
 ##### Set webhook:
 ```php
 $webhookUrl = 'https://yourwebhook.net';
