@@ -47,7 +47,7 @@ class TelegramRequest
         $url = self::API_HOST . $this->accessToken . '/' . $method;
 
         $params = $this->prepareRequest($params);
-        
+
         $response = $this->client->post($url, $params);
 
         return $this->response->parse($response);
@@ -60,8 +60,13 @@ class TelegramRequest
      */
     protected function prepareRequest(array $params)
     {
-        $this->response = TransportClientResponseFactory::make($params['action']);
-        unset($params['action']);
+        $action = null;
+        if (isset($params['action'])) {
+            $action = $params['action'];
+            unset($params['action']);
+        }
+        
+        $this->response = TransportClientResponseFactory::make($action);
         
         return $params;
     }
