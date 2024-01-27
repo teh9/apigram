@@ -13,6 +13,9 @@ class MessagesTest extends TestCase
 
     public function testSendMessage()
     {
+        echo "TELEGRAM_BOT_TOKEN: " . getenv('TELEGRAM_BOT_TOKEN') . PHP_EOL;
+        echo "TELEGRAM_CHAT_ID: " . getenv('TELEGRAM_CHAT_ID') . PHP_EOL;
+
         $telegram = new TelegramClient(getenv('TELEGRAM_BOT_TOKEN'));
         $response = $telegram->messages()->to(getenv('TELEGRAM_CHAT_ID'))->send('test');
 
