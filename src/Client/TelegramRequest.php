@@ -47,12 +47,8 @@ class TelegramRequest
         $url = self::API_HOST . $this->accessToken . '/' . $method;
 
         $params = $this->prepareRequest($params);
-
-        try {
-            $response = $this->client->post($url, $params);
-        } catch (Exception $e) {
-            //
-        }
+        
+        $response = $this->client->post($url, $params);
 
         return $this->response->parse($response);
     }

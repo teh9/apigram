@@ -2,6 +2,7 @@
 
 namespace Teh9\Apigram\TransportClient;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 
@@ -32,7 +33,7 @@ class TransportClient
                 $this->initialConfig
             ));
         } catch (\Exception $e) {
-            //
+            throw new Exception($e->getMessage(), $e->getCode(), $e);
         }
     }
 }
