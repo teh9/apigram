@@ -7,7 +7,7 @@ trait MessagesTrait
     /**
      * @return static
      */
-    public function to($chatId)
+    public function to(mixed $chatId)
     {
         $this->actionConfig['chat_id'] = $chatId;
         return $this;
