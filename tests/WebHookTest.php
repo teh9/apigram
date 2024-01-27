@@ -28,7 +28,7 @@ class WebHookTest extends TestCase
         $this->assertTrue($response->status());
     }
 
-    public function removeWebhook()
+    public function testRemoveWebhook()
     {
         $telegram = new TelegramClient(getenv('TELEGRAM_BOT_TOKEN'));
 
