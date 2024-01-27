@@ -33,7 +33,7 @@ $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 $client->webhook()->set($webhookUrl);
 ```
 
-#### Remove webhook:
+##### Remove webhook:
 ```php
 $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 $client->webhook()->remove();
