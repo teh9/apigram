@@ -42,6 +42,8 @@ var_dump($response->status()); // true/false
 ```php
 $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 $client->webhook()->remove();
+
+var_dump($response->status()); // true/false
 ```
 
 # License
