@@ -6,17 +6,29 @@ use Psr\Http\Message\ResponseInterface;
 
 class TransportClientResponse
 {
-    protected $response;
+    /**
+     * @var $content
+     */
+    protected $content;
 
+    /**
+     * @var $headers
+     */
     protected $headers;
 
+    /**
+     * @var $body
+     */
     protected $body;
 
+    /**
+     * @var $statusCode
+     */
     protected $statusCode;
 
     public function get()
     {
-        return $this->response;
+        return $this->content;
     }
 
     public function getStatusCode()
@@ -34,12 +46,18 @@ class TransportClientResponse
         return $this->headers;
     }
 
+    public function status()
+    {
+        return $this->content->ok;
+    }
+
     public function parse(ResponseInterface $response)
     {
         $this->headers = $response->getHeaders();
         $this->body = $response->getBody();
         $this->statusCode = $response->getStatusCode();
+        $this->content = json_decode($this->body->getContents());
 
-        return $this->response = json_decode($this->body->getContents());
+        return $this;
     }
 }

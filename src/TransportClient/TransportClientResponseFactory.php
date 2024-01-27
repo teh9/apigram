@@ -1,8 +1,9 @@
 <?php
 
-namespace Teh9\Apigram\TransportClient\Responses;
+namespace Teh9\Apigram\TransportClient;
 
 use Teh9\Apigram\TransportClient\TransportClientResponse;
+use Teh9\Apigram\TransportClient\Responses\MessagesResponse;
 
 class TransportClientResponseFactory
 {

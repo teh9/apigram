@@ -8,6 +8,6 @@ class MessagesResponse extends TransportClientResponse
 {
     public function getMessageId()
     {
-        //
+        return $this->content->result->message_id;
     }
 }
