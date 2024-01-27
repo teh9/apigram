@@ -7,10 +7,6 @@ use Teh9\Apigram\Client\TelegramClient;
 
 class MessagesTest extends TestCase
 {
-    protected $accessToken;
-
-    protected $chatId;
-
     public function testSendMessage()
     {
         $telegram = new TelegramClient(getenv('TELEGRAM_BOT_TOKEN'));
