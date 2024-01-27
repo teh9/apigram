@@ -1,15 +1,15 @@
 # APIGram Simple PHP Telegram API SDK
 A lightweight and simple library for working with the Telegram Bot API, is under active development. But some methods are already available for work, see paragraph 3.
 
-# 1. Prerequisites
+## 1. Prerequisites
 - PHP >= 7.2.5
 
-# 2. Installation
+## 2. Installation
 ```
 composer require teh9/apigram
 ```
 
-# 3. Initialization
+## 3. Initialization
 
 ```php 
 $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
@@ -41,10 +41,10 @@ var_dump($response->status()); // true/false
 ##### Remove webhook:
 ```php
 $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
-$client->webhook()->remove();
+$response = $client->webhook()->remove();
 
 var_dump($response->status()); // true/false
 ```
 
-# License
+## License
 The MIT License (MIT). Please see <a href="https://github.com/teh9/apigram/blob/master/LICENSE">License File</a> for more information.
