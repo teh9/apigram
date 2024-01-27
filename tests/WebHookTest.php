@@ -18,7 +18,7 @@ class WebHookTest extends TestCase
     public function testSetWebhook()
     {
         $telegram = new TelegramClient(getenv('TELEGRAM_BOT_TOKEN'));
-        $response = $telegram->webhook()->set('https://example.test');
+        $response = $telegram->webhook()->set('https://github.com');
 
         $this->assertTrue($response->status());
     }
