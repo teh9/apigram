@@ -1,4 +1,4 @@
-name: PHP Composer
+name: APIGram Github Actions
 
 on:
   push:
