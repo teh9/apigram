@@ -11,8 +11,9 @@ class MessagesTest extends TestCase
 
     protected $chatId;
 
-    public function __construct()
+    public function setUp(): void
     {
+        parent::setUp();
         $this->accessToken = getenv('TELEGRAM_BOT_TOKEN');
         $this->chatId = getenv('TELEGRAM_CHAT_ID');
     }
