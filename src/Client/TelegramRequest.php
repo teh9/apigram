@@ -2,7 +2,6 @@
 
 namespace Teh9\Apigram\Client;
 
-use Exception;
 use Teh9\Apigram\TransportClient\TransportClient;
 use Teh9\Apigram\TransportClient\TransportClientResponseFactory;
 
