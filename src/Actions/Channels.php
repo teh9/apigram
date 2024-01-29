@@ -22,7 +22,7 @@ class Channels extends Action
     {
         $this->actionConfig['title'] = $title;
 
-        return $this->request->post('channels.createChannel', $this->parseParams($params));
+        return $this->request->post('createChannel', $this->parseParams($params));
     }
 
     /**
@@ -34,7 +34,7 @@ class Channels extends Action
     {
         $this->actionConfig['channel'] = $channelId;
 
-        return $this->request->post('channels.deleteChannel', $this->parseParams());
+        return $this->request->post('deleteChannel', $this->parseParams());
     }
 
     public function join()
