@@ -18,9 +18,9 @@ abstract class Action implements ActionInterface
     protected $actionConfig;
 
     /**
-     * @var string $action
+     * @var string $type
      */
-    protected $action;
+    protected $type;
 
     /**
      * @param TelegramRequest $telegramRequest
@@ -37,6 +37,6 @@ abstract class Action implements ActionInterface
      */
     protected function parseParams(array $params = [])
     {
-        return array_merge($this->actionConfig, $params, ['action' => $this->action]);    
+        return array_merge($this->actionConfig, $params, ['action' => $this->type]);    
     }
 }

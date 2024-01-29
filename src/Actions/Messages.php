@@ -3,21 +3,22 @@
 namespace Teh9\Apigram\Actions;
 
 use Teh9\Apigram\Traits\MessagesTrait;
+use Teh9\Apigram\TransportClient\Responses\MessagesResponse;
 
 class Messages extends Action
 {
     use MessagesTrait;
 
     /**
-     * @var $action
+     * @var string $type
      */
-    protected $action = 'messages';
+    protected $type = 'messages';
 
     /**
      * @param string $text
      * @param array $params
      * 
-     * @return mixed
+     * @return MessagesResponse
      */
     public function send(string $text, array $params = [])
     {
@@ -31,7 +32,7 @@ class Messages extends Action
      * @param int $messageId
      * @param array $params
      * 
-     * @return \Teh9\Apigram\TransportClient\TransportClientResponse
+     * @return MessagesResponse
      */
     public function forward(mixed $fromChatId, int $messageId, array $params = [])
     {

@@ -2,13 +2,15 @@
 
 namespace Teh9\Apigram\Actions;
 
+use Teh9\Apigram\TransportClient\TransportClientResponse;
+
 class Webhook extends Action
 {
     /**
      * @param string $url
      * @param array $params
      * 
-     * @return mixed
+     * @return TransportClientResponse
      */
     public function set(string $url, array $params = [])
     {
@@ -17,7 +19,7 @@ class Webhook extends Action
     }
 
     /**
-     * @return mixed
+     * @return TransportClientResponse
      */
     public function remove()
     {

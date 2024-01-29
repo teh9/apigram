@@ -59,13 +59,13 @@ class TelegramRequest
      */
     protected function prepareRequest(array $params)
     {
-        $action = null;
-        if (isset($params['action'])) {
-            $action = $params['action'];
-            unset($params['action']);
+        $type = null;
+        if (isset($params['type'])) {
+            $type = $params['type'];
+            unset($params['type']);
         }
         
-        $this->response = TransportClientResponseFactory::make($action);
+        $this->response = TransportClientResponseFactory::make($type);
         
         return $params;
     }

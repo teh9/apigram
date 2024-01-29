@@ -4,13 +4,13 @@ namespace Teh9\Apigram\TransportClient\Responses;
 
 use Teh9\Apigram\TransportClient\TransportClientResponse;
 
-class MessagesResponse extends TransportClientResponse
+class ChannelsResponse extends TransportClientResponse
 {
     /**
      * @return int
      */
-    public function getMessageId()
+    public function getChannelId()
     {
-        return $this->content->result->message_id;
+        return $this->content->result->id;
     }
 }
