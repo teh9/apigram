@@ -13,4 +13,12 @@ class MessagesResponse extends TransportClientResponse
     {
         return $this->content->result->message_id;
     }
+
+    /**
+     * @return string
+     */
+    public function getMessageText()
+    {
+        return $this->content->result->text;
+    }
 }
