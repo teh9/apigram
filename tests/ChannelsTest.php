@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Teh9\Apigram\Client\TelegramClient;
+use PHPUnit\Framework\TestCase;
 
 class ChannelsTest extends TestCase
 {
