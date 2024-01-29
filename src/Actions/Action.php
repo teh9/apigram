@@ -37,6 +37,6 @@ abstract class Action implements ActionInterface
      */
     protected function parseParams(array $params = [])
     {
-        return array_merge($this->actionConfig, $params, ['action' => $this->type]);    
+        return array_merge($this->actionConfig, $params, ['type' => $this->type]);    
     }
 }
