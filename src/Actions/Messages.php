@@ -42,6 +42,23 @@ class Messages extends Action
         return $this->request->post('forwardMessage', $this->parseParams($params));
     }
 
+    /**
+     * @param mixed $chatId
+     * @param int $messageId
+     * @param string $text
+     * @param array $params
+     * 
+     * @return MessagesResponse
+     */
+    public function edit(mixed $chatId, int $messageId, string $text, array $params = [])
+    {
+        $this->actionConfig['chat_id'] = $chatId;
+        $this->actionConfig['message_id'] = $messageId;
+        $this->actionConfig['text'] = $text;
+
+        return $this->request->post('editMessageText', $this->parseParams($params));
+    }
+
     public function search()
     {
         //

@@ -42,12 +42,4 @@ class TelegramClient
     {
         return new Assets($this->request);
     }
-
-    /**
-     * @return Channels
-     */
-    public function channels()
-    {
-        return new Channels($this->request);
-    }
 }
