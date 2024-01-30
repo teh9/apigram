@@ -15,7 +15,7 @@ abstract class Action implements ActionInterface
     /**
      * @var array $actionConfig
      */
-    protected $actionConfig;
+    protected $actionConfig = [];
 
     /**
      * @var string $type
