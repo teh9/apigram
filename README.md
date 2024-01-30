@@ -18,6 +18,7 @@ composer require teh9/apigram
 ```php 
 $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 ```
+
 <details>
   <summary><b>1. Messages</b></summary>
   
@@ -26,12 +27,23 @@ $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 ```php
 $chatId = 1;
 
-$client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
-$response = $client->messages()->to($chatId)->send('text');
+$apigram = new \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
+$response = $apigram->messages()->to($chatId)->send('text');
 
 $response->getMessageId(); // Get message id
 
 ```
+#### Edit message:
+
+```php
+$chatId = 1;
+$apigram = new \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
+$response = $apigram->messages()->edit('TELEGRAM_CHAT_ID', 'MESSAGE_ID', 'lorem ipsum new text');
+
+var_dump($response->getMessageText()); // lorem ipsum new text
+
+```
+
 </details>
 
 <details>
@@ -41,18 +53,32 @@ $response->getMessageId(); // Get message id
 ```php
 $webhookUrl = 'https://yourwebhook.net';
 
-$client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
-$response = $client->webhook()->set($webhookUrl);
+$apigram = new \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
+$response = $apigram->webhook()->set($webhookUrl);
 
 var_dump($response->status()); // true/false
 ```
 
 ##### Remove webhook:
 ```php
-$client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
-$response = $client->webhook()->remove();
+$apigram = new \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
+$response = $apigram->webhook()->remove();
 
 var_dump($response->status()); // true/false
+```
+</details>
+
+<details>
+  <summary><b>3. Bot</b></summary>
+
+##### Get me (info about bot)
+```php
+$apigram = new \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
+$response = $apigram->bot()->getMe();
+
+var_dump($response->getId()); // Bot id
+var_dump($response->getFirstName()); // Bot name
+var_dump($response->getUserName()); // Bot login
 ```
 </details>
 
