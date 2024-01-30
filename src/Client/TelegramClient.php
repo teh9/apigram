@@ -3,9 +3,9 @@
 namespace Teh9\Apigram\Client;
 
 use Teh9\Apigram\Actions\Assets;
-use Teh9\Apigram\Actions\Channels;
 use Teh9\Apigram\Actions\Messages;
 use Teh9\Apigram\Actions\Webhook;
+use Teh9\Apigram\Actions\Bot;
 
 class TelegramClient
 {
@@ -41,5 +41,13 @@ class TelegramClient
     public function assets()
     {
         return new Assets($this->request);
+    }
+
+    /**
+     * @return Bot
+     */
+    public function bot()
+    {
+        return new Bot($this->request);
     }
 }

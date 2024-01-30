@@ -24,16 +24,16 @@ class TransportClientResponse
     /**
      * @var $statusCode
      */
-    protected $statusCode;
+    protected $code;
 
     public function get()
     {
         return $this->content;
     }
 
-    public function getStatusCode()
+    public function getCode()
     {
-        return $this->statusCode;
+        return $this->code;
     }
 
     public function getBody()
@@ -55,7 +55,7 @@ class TransportClientResponse
     {
         $this->headers = $response->getHeaders();
         $this->body = $response->getBody();
-        $this->statusCode = $response->getStatusCode();
+        $this->code = $response->getStatusCode();
         $this->content = json_decode($this->body->getContents());
 
         return $this;
