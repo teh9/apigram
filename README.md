@@ -18,7 +18,9 @@ composer require teh9/apigram
 ```php 
 $client = \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 ```
-#### 3.1. Messages
+<details>
+  <summary><b>1. Messages</b></summary>
+  
 ##### Send message:
 
 ```php
@@ -30,8 +32,11 @@ $response = $client->messages()->to($chatId)->send('text');
 $response->getMessageId(); // Get message id
 
 ```
+</details>
 
-#### 3.2. Webhook
+<details>
+  <summary><b>2. Webhook</b></summary>
+
 ##### Set webhook:
 ```php
 $webhookUrl = 'https://yourwebhook.net';
@@ -49,6 +54,7 @@ $response = $client->webhook()->remove();
 
 var_dump($response->status()); // true/false
 ```
+</details>
 
 ## License
 The MIT License (MIT). Please see <a href="https://github.com/teh9/apigram/blob/master/LICENSE">License File</a> for more information.
