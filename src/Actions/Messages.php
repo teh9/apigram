@@ -17,6 +17,12 @@ class Messages extends Action
     /**
      * @param string $text
      * @param array $params
+     * - @var mixed chat_id
+	 * - @var string text
+	 * - @var string parse_mode
+	 * - @var string disable_web_page_preview
+	 * - @var bool disable_notification
+	 * - @var int reply_to_message_id
      * 
      * @return MessagesResponse
      */

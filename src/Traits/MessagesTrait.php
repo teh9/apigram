@@ -16,7 +16,7 @@ trait MessagesTrait
     }
 
     /**
-     * @param string $mode
+     * @param string $mode | HTML, Markdown, MarkdownV2
      * 
      * @return static
      */
