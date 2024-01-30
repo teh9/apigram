@@ -16,6 +16,6 @@ class Bot extends Action
      */
     public function getMe()
     {
-        return $this->request->post('getMe');
+        return $this->request->post('getMe', $this->parseParams([]));
     }
 }
