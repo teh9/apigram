@@ -33,7 +33,7 @@ $response = $apigram->messages()->to($chatId)->send('text');
 $response->getMessageId(); // Get message id
 
 ```
-#### Edit message:
+##### Edit message:
 
 ```php
 $chatId = 1;
@@ -71,7 +71,7 @@ var_dump($response->status()); // true/false
 <details>
   <summary><b>3. Bot</b></summary>
 
-##### Get me (info about bot)
+##### Get me (info about bot):
 ```php
 $apigram = new \Teh9\Apigram\Client\TelegramClient('BOT_API_TOKEN');
 $response = $apigram->bot()->getMe();
