@@ -34,7 +34,7 @@ class TransportClient
     public function post(string $url, array $payload)
     {
         try {
-            return $this->guzzleClient->request('POST', $url, $payload);
+            return $this->guzzleClient->request('POST', $url, array_merge($payload, $this->initialConfig));
         } catch (\Exception $e) {
             throw new Exception($e->getMessage(), $e->getCode(), $e);
         }
