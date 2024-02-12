@@ -12,6 +12,11 @@ class Assets extends Action
     use MessagesTrait, AssetsTrait;
 
     /**
+     * @var string $type
+     */
+    protected $type = 'assets';
+
+    /**
      * @param string
      * @param array
      * 
