@@ -11,7 +11,7 @@ trait AssetsTrait
      */
     public function uploadFile(string $path, string $type)
     {
-        $this->actionConfig = [
+        $file = [
             [
                 'name' => 'chat_id',
                 'contents' => $this->actionConfig['chat_id'],
@@ -22,5 +22,19 @@ trait AssetsTrait
                 'filename' => basename($path),
             ] 
         ];
+
+        $this->actionConfig = array_merge($file, $this->actionConfig);
+    }
+
+    public function caption(string $caption)
+    {
+        $caption = [
+            [
+                'name' => 'caption',
+                'contents' => $caption
+            ]
+        ];
+
+        $this->actionConfig = array_merge($caption, $this->actionConfig);
     }
 }

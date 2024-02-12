@@ -52,6 +52,8 @@ class TelegramRequest
     {
         $params = $this->prepareRequest($params);
 
+        echo '<pre>'; print_r(['multipart' => $params]); echo '</pre>';
+
         return $this->request($method, ['multipart' => $params]);
     }
     
