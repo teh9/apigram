@@ -13,7 +13,7 @@ class Commands extends Action
     /**
      * @var string
      */
-    protected string $type = 'commands';
+    protected $type = 'commands';
 
     /**
      * @param array
