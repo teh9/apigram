@@ -21,7 +21,7 @@ class Assets extends Action
     {
         $this->uploadFile($imagePath, 'photo');
 
-        return $this->request->post('sendPhoto', $this->parseParams($params));
+        return $this->request->multipart('sendPhoto', $this->parseParams($params));
     }
 
     public function sendAudio()
