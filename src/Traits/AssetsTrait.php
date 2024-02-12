@@ -12,6 +12,8 @@ trait AssetsTrait
     public function uploadFile(string $path, string $type)
     {
         if (!isset($this->actionConfig['chat_id'])) throw new \Exception('Provide chat id');
+        
+        $imageContent = file_get_contents($path);
 
         $file = [
             [
@@ -20,7 +22,7 @@ trait AssetsTrait
             ],
             [
                 'name' => $type,
-                'contents' => file_get_contents($path),
+                'contents' => $imageContent,
                 'filename' => basename($path),
             ] 
         ];
