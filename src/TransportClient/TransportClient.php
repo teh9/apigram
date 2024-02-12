@@ -29,7 +29,7 @@ class TransportClient
     {
         try {
             return $this->guzzleClient->post($url, array_merge(
-                ['json' => $payload],
+                $payload,
                 $this->initialConfig
             ));
         } catch (\Exception $e) {
