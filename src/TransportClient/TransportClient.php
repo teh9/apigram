@@ -25,6 +25,12 @@ class TransportClient
         return $this;
     }
 
+    /**
+     * @param string
+     * @param array
+     * 
+     * @return ResponseInterface
+     */
     public function post(string $url, array $payload)
     {
         try {

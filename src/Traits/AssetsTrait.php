@@ -42,5 +42,7 @@ trait AssetsTrait
         ];
 
         $this->actionConfig = array_merge($caption, $this->actionConfig);
+
+        return $this;
     }
 }
