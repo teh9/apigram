@@ -43,12 +43,23 @@ class TelegramRequest
      */
     public function post(string $method, array $params = [])
     {
-        $url = self::API_HOST . $this->accessToken . '/' . $method;
-
         $params = $this->prepareRequest($params);
-
+        
+        return $this->request($method, ['form_params' => $params]);
+    }
+    
+    public function multipart(string $method, array $params = [])
+    {
+        $params = $this->prepareRequest($params);
+        
+        return $this->request($method, ['multipart' => $params]);
+    }
+    
+    protected function request(string $method, $params)
+    {
+        $url = self::API_HOST . $this->accessToken . '/' . $method;
         $response = $this->client->post($url, $params);
-
+        
         return $this->response->parse($response);
     }
 

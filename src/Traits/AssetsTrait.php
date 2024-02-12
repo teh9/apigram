@@ -11,7 +11,7 @@ trait AssetsTrait
      */
     public function uploadFile(string $path, string $type)
     {
-        $this->actionConfig['multipart'] = [
+        $this->actionConfig = [
             [
                 'name' => 'chat_id',
                 'contents' => $this->actionConfig['chat_id'],
