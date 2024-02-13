@@ -12,11 +12,7 @@ trait CommandsTrait
      */
     public function command(string $command, string $description)
     {
-        $commands = ['command' => $command, 'description' => $description];
-
-        $this->actionConfig['commands'] = isset($this->actionConfig['commands']) 
-                                            ? array_merge($this->actionConfig['commands'], $commands) 
-                                            : $commands;
+        $this->actionConfig['commands'][] = ['command' => $command, 'description' => $description]
 
         return $this;
     }
