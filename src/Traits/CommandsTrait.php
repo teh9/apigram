@@ -12,7 +12,7 @@ trait CommandsTrait
      */
     public function command(string $command, string $description)
     {
-        $this->actionConfig['commands'][] = ['command' => $command, 'description' => $description]
+        $this->actionConfig['commands'][] = ['command' => $command, 'description' => $description];
 
         return $this;
     }
