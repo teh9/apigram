@@ -12,7 +12,34 @@ trait CommandsTrait
      */
     public function command(string $command, string $description)
     {
-        $this->actionConfig[] = ['command' => $command, 'description' => $description];
+        $commands = ['command' => $command, 'description' => $description];
+
+        $this->actionConfig['commands'] = array_merge($commands, $this->actionConfig['commands']);
+
+        return $this;
+    }
+
+    /**
+     * @param string - all_private_chats
+     * 
+     * @return static
+     */
+    public function scope(string $type)
+    {
+        $this->actionConfig['scope'] = ['type' => $type];
+
+        return $this;
+    }
+
+    /**
+     * @param string
+     * 
+     * @return static
+     */
+    public function language(string $lang = 'en')
+    {
+        $this->actionConfig['language_code'] = $lang;
+
         return $this;
     }
 }

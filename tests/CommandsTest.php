@@ -11,6 +11,8 @@ class CommandsTest extends TestCase
     {
         $apigram = new TelegramClient(getenv('TELEGRAM_BOT_TOKEN'));
         $response = $apigram->commands()
+                            ->scope('all_private_chats')
+                            ->language()
                             ->command('testCommand', 'test description')
                             ->command('testCommand_1', 'test description 1')
                             ->setMyCommands();
