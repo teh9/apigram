@@ -12,7 +12,7 @@ class CommandsTest extends TestCase
         $apigram = new TelegramClient(getenv('TELEGRAM_BOT_TOKEN'));
         $response = $apigram->commands()
                             ->command('testCommand', 'test description')
-                            ->command('testCommand 1', 'test description 1')
+                            ->command('testCommand_1', 'test description 1')
                             ->setMyCommands();
 
         $this->assertTrue($response->status());
