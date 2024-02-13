@@ -14,7 +14,9 @@ trait CommandsTrait
     {
         $commands = ['command' => $command, 'description' => $description];
 
-        $this->actionConfig['commands'] = array_merge($commands, $this->actionConfig['commands']);
+        $this->actionConfig['commands'] = isset($this->actionConfig['commands']) 
+                                            ? array_merge($this->actionConfig['commands'], $commands) 
+                                            : $commands;
 
         return $this;
     }
