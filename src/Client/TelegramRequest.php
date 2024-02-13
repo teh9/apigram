@@ -44,6 +44,8 @@ class TelegramRequest
     public function post(string $method, array $params = [])
     {
         $params = $this->prepareRequest($params);
+
+        echo '<pre>'; print_r($params); echo '</pre>'; die;
         
         return $this->request($method, ['form_params' => $params]);
     }
