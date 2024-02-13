@@ -45,7 +45,7 @@ class TelegramRequest
     {
         $params = $this->prepareRequest($params);
 
-        echo '<pre>'; print_r($params); echo '</pre>'; die;
+        echo '<pre>'; print_r($params); echo '</pre>';
         
         return $this->request($method, ['form_params' => $params]);
     }
