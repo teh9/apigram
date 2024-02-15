@@ -19,6 +19,7 @@ class Assets extends Action
     /**
      * @param string
      * @param array
+     * - @var json reply_markup
      * 
      * @return AssetsResponse
      */

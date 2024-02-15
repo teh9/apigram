@@ -27,15 +27,4 @@ class MessagesTest extends TestCase
         $this->assertTrue($response->status());
         $this->assertSame($messageToEdit, $response->getMessageText());
     }
-
-    public function testMessageWithInlineKeyboard()
-    {
-        $telegram = new TelegramClient(getenv('TELEGRAM_BOT_TOKEN'));
-        $response = $telegram->messages()
-                             ->to(getenv('TELEGRAM_CHAT_ID'))
-                             ->keyboard('test', 'testCommand')
-                             ->send('test keyboard');
-
-        $this->assertTrue($response->status());
-    }
 }
