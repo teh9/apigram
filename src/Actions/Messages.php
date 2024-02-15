@@ -2,12 +2,13 @@
 
 namespace Teh9\Apigram\Actions;
 
+use Teh9\Apigram\Traits\InlineKeyboardTrait;
 use Teh9\Apigram\Traits\MessagesTrait;
 use Teh9\Apigram\TransportClient\Responses\MessagesResponse;
 
 class Messages extends Action
 {
-    use MessagesTrait;
+    use MessagesTrait, InlineKeyboardTrait;
 
     /**
      * @var string $type

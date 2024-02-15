@@ -6,7 +6,6 @@ use Teh9\Apigram\Actions\Assets;
 use Teh9\Apigram\Actions\Messages;
 use Teh9\Apigram\Actions\Webhook;
 use Teh9\Apigram\Actions\Bot;
-use Teh9\Apigram\Actions\Commands;
 
 class TelegramClient
 {
@@ -50,13 +49,5 @@ class TelegramClient
     public function bot()
     {
         return new Bot($this->request);
-    }
-
-    /**
-     * @return Commands
-     */
-    public function commands()
-    {
-        return new Commands($this->request);
     }
 }
