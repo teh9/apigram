@@ -12,7 +12,7 @@ trait InlineKeyboardTrait
      */
     public function keyboard(string $text, string $button)
     {
-        $this->actionConfig['reply_markup']['inline_keyboard'][] = [['text' => $text, 'callback_data' => $button]];
+        $this->actionConfig['inline_keyboard'][] = [['text' => $text, 'callback_data' => $button]];
         
         return $this;
     }
@@ -22,7 +22,7 @@ trait InlineKeyboardTrait
      */
     public function setCustomKeyboard(array $keyboard)
     {
-        $this->actionConfig['reply_markup']['inline_keyboard'][] = $keyboard;
+        $this->actionConfig['inline_keyboard'][] = $keyboard;
 
         return $this;
     }
