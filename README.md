@@ -82,5 +82,23 @@ var_dump($response->getUserName()); // Bot login
 ```
 </details>
 
+<details>
+  <summary><b>4. Assets</b></summary>
+
+##### Send photo:
+```php
+$imagePath = 'https://i.imgur.com/SVm9n13_d.jpg';
+
+$apigram = new TelegramClient(getenv('TELEGRAM_BOT_TOKEN'));
+$response = $apigram->assets()->to(getenv('TELEGRAM_CHAT_ID'))->sendPhoto($imagePath);
+// or
+$response = $apigram->assets()->to(getenv('TELEGRAM_CHAT_ID'))->caption('test caption')->sendPhoto($imagePath);
+
+
+var_dump($response->status());
+var_dump($response->getMessageId());
+```
+</details>
+
 ## License
 The MIT License (MIT). Please see <a href="https://github.com/teh9/apigram/blob/master/LICENSE">License File</a> for more information.
